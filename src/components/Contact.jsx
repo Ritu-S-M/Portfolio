@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { inViewHandler } from "../animationHandler";
 import { motion, useAnimation } from "framer-motion";
 import { InView } from "react-intersection-observer";
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import Spline from '@splinetool/react-spline';
 
 
