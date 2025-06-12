@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { InView } from "react-intersection-observer";
 import { GoDownload } from "react-icons/go";
 
 export const About = () => {
   const controls = useAnimation();
+  const imageControls = useAnimation();
   const [hasHovered, setHasHovered] = useState(false);
 
   return (
@@ -12,42 +13,57 @@ export const About = () => {
       <div className="container mx-auto px-4">
         <InView
           triggerOnce
-          onChange={(inView) => inView && controls.start("visible")}
+          onChange={(inView) => {
+            if (inView) {
+              controls.start("visible");
+              imageControls.start("visible");
+            }
+          }}
         >
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 xl:gap-4">
-            {/* Image Container - only visible on small screens */}
+            {/* Image Container - visible on screens smaller than xl */}
             <motion.div
               className="flex xl:hidden w-full justify-center"
-              initial={{ opacity: 0.9, scale: 0.95 }}
-              whileTap={{
-                opacity: 1,
-                scale: 1.05,
-                transition: { duration: 0.3 },
+              initial="hidden"
+              animate={imageControls}
+              variants={{
+                hidden: { opacity: 0, y: 30, scale: 0.9 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: { duration: 0.6, ease: "easeOut" },
+                },
               }}
             >
               <motion.div
                 className="relative group cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <motion.img
                   className="w-[280px] sm:w-[320px] md:w-[360px] rounded-xl border-[3px] border-fuchsia-600 object-cover transition-all duration-300 relative z-10"
                   src="/Photo.png"
                   alt="Profile Picture"
-                  style={{ opacity: 0.9 }} // Initial low opacity
-                  whileTap={{
-                    opacity: 1,
+                  initial={{ opacity: 0.8 }}
+                  animate={{ opacity: 1 }}
+                  whileHover={{
                     filter: "drop-shadow(0 0 12px #d946ef)",
                     transition: { duration: 0.3 },
+                  }}
+                  whileTap={{
+                    filter: "drop-shadow(0 0 16px #d946ef)",
+                    transition: { duration: 0.2 },
                   }}
                 />
 
                 <motion.div
-                  className="absolute -inset-1 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 opacity-0 group-active:opacity-20 blur-xl transition-opacity duration-300 -z-10"
+                  className="absolute -inset-1 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 opacity-0 group-hover:opacity-20 group-active:opacity-30 blur-xl transition-opacity duration-300 -z-10"
                 />
               </motion.div>
             </motion.div>
 
-
-            {/* Image Container */}
+            {/* Image Container - visible on xl screens and above */}
             <motion.div
               className="hidden xl:flex xl:w-2/3 justify-center"
               initial="hidden"

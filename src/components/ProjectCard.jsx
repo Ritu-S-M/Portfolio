@@ -44,7 +44,7 @@ const ProjectCard = (
             
             <div className="w-9 h-9 rounded-lg grid place-items-center bg-gradient-to-br from-purple-400 to-fuchsia-500 text-zinc-950 shrink-0 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-purple-400/50"> 
                 <span
-                className="material-symbols-rounded text-lg transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                className="material-symbols-rounded text-lg transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-tap:translate-x-0.5 group-active:translate-y-0.5"
                 aria-hidden="true"
                 >
                     arrow_outward
