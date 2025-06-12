@@ -15,9 +15,41 @@ export const About = () => {
           onChange={(inView) => inView && controls.start("visible")}
         >
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 xl:gap-4">
+            {/* Image Container - only visible on small screens */}
+            <motion.div
+              className="flex xl:hidden w-full justify-center"
+              initial={{ opacity: 0.9, scale: 0.95 }}
+              whileTap={{
+                opacity: 1,
+                scale: 1.05,
+                transition: { duration: 0.3 },
+              }}
+            >
+              <motion.div
+                className="relative group cursor-pointer"
+              >
+                <motion.img
+                  className="w-[280px] sm:w-[320px] md:w-[360px] rounded-xl border-[3px] border-fuchsia-600 object-cover transition-all duration-300 relative z-10"
+                  src="/Photo.png"
+                  alt="Profile Picture"
+                  style={{ opacity: 0.9 }} // Initial low opacity
+                  whileTap={{
+                    opacity: 1,
+                    filter: "drop-shadow(0 0 12px #d946ef)",
+                    transition: { duration: 0.3 },
+                  }}
+                />
+
+                <motion.div
+                  className="absolute -inset-1 rounded-xl bg-gradient-to-br from-fuchsia-600 to-purple-600 opacity-0 group-active:opacity-20 blur-xl transition-opacity duration-300 -z-10"
+                />
+              </motion.div>
+            </motion.div>
+
+
             {/* Image Container */}
             <motion.div
-              className="w-full xl:w-2/3 flex justify-center"
+              className="hidden xl:flex xl:w-2/3 justify-center"
               initial="hidden"
               animate={controls}
               variants={{
@@ -36,14 +68,14 @@ export const About = () => {
                 onHoverStart={() => setHasHovered(true)}
               >
                 <motion.img
-                  className="w-[280px] sm:w-[320px] md:w-[360px] xl:w-[400px] rounded-xl border-[3px] border-fuchsia-600 shadow-[0_0_40px_#d946ef70] object-cover transition-all duration-300 relative z-10"
+                  className="xl:w-[400px] rounded-xl border-[3px] border-fuchsia-600 shadow-[0_0_40px_#d946ef70] object-cover transition-all duration-300 relative z-9"
                   src="/Photo.png"
                   alt="Profile Picture"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: hasHovered ? 1 : 0 }}
                   whileHover={{
-                    filter: "grayscale(0%)",
                     transition: { duration: 0.3 },
+                    filter: "drop-shadow(0 0 12px #d946ef)",
                   }}
                 />
 
@@ -57,7 +89,7 @@ export const About = () => {
 
             {/* Content Container */}
             <motion.div
-              className="w-full lg:w-1/2 xl:w-2/3"
+              className="block w-full lg:w-1/2 xl:w-2/3"
               initial="hidden"
               animate={controls}
               variants={{
