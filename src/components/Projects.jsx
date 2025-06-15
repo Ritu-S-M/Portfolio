@@ -2,42 +2,37 @@ import ProjectCard from './ProjectCard';
 
 export const Projects = () => {
   const projects = [
+    {
+      imgSrc: '/projects/currency.png',
+      title: 'Currency Converter',
+      tags: ['ReactJS', 'Tailwind CSS','Custom Hook'],
+      projectLink: 'https://github.com/Ritu-S-M/React_js/tree/main/currency_Converter'
+    },
   {
-    imgSrc: '/projects/default.png',
-    title: 'Tarjan algorithm visualizer',
-    tags: ['Python', 'Matplotlib', 'C'],
-    projectLink: ''
-  },
-  {
-    imgSrc: '/projects/default.png',
+    imgSrc: '/projects/xai.png',
     title: 'Explainable AI for Skin Cancer Detection',
     tags: ['Grad CAM', 'ML','ReactJS'],
-    projectLink: ''
+    projectLink: 'https://github.com/Ritu-S-M/Compilators'
   },
   {
-    imgSrc: '/projects/d1.jpg',
-    title: 'Stock Alert',
-    tags: ['HTML', 'API'],
-    projectLink: ''
-  },
-  {
-    imgSrc: '/projects/default.png',
+    imgSrc: '/projects/portfolio.png',
     title: 'Portfolio Website',
     tags: ['ReactJS', 'Framer Motion'],
-    projectLink: ''
+    projectLink: 'https://github.com/Ritu-S-M/Portfolio'
   },
   {
-    imgSrc: '/projects/default.png',
+    imgSrc: '/projects/d1.png',
+    title: 'Stock Alert',
+    tags: ['HTML', 'API'],
+    projectLink: 'https://github.com/Ritu-S-M/Stock_price_notifier'
+  },
+  {
+    imgSrc: '/projects/edutoken.png',
     title: 'Edutoken',
     tags: ['ReactJS', 'Flask'],
     projectLink: ''
   },
-  {
-    imgSrc: '/projects/default.png',
-    title: 'Education Learning Model',
-    tags: ['ReactJS', 'Tailwind CSS'],
-    projectLink: ''
-  },
+  
 ];
   return (
     <section
