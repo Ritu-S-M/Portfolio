@@ -30,7 +30,7 @@ export const Projects = () => {
     imgSrc: '/projects/edutoken.png',
     title: 'Edutoken',
     tags: ['ReactJS', 'Flask'],
-    projectLink: ''
+    projectLink: 'https://github.com/Ritu-S-M/EduToken'
   },
   
 ];
@@ -42,7 +42,7 @@ export const Projects = () => {
           My Projects
         </h2>
 
-        <div className='grid ml-30 mr-30 gap-x-6 gap-y-5 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]'
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4'
         >
           {projects.map(({imgSrc, title, tags,projectLink}, index) =>
           (
